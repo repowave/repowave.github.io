@@ -866,6 +866,17 @@ body {
     font-size: 0.85rem;
 }
 
+/* Add this to your existing CSS */
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.pat-guide-modal.active ~ body {
+    overflow: hidden;
+}    
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -1042,6 +1053,393 @@ input[type="password"][data-security="true"] {
         text-align: center;
     }
 }
+
+/* PAT Guide Modal - Improved Responsiveness */
+@media (max-width: 768px) {
+    .pat-guide-modal {
+        padding: 20px 10px;
+    }
+    
+    .pat-guide-content {
+        padding: 25px 15px;
+        margin: 10px;
+    }
+    
+    .guide-step {
+        padding: 20px 15px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .step-number {
+        min-width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    
+    .step-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .step-visual {
+        padding: 10px;
+        overflow-x: auto;
+    }
+    
+    .step-visual img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .step-actions {
+        flex-wrap: wrap;
+    }
+    
+    .step-action-btn {
+        flex: 1;
+        min-width: 120px;
+    }
+    
+    .guide-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .guide-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5rem;
+        background: var(--danger);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .pat-guide-content {
+        padding: 20px 12px;
+    }
+    
+    .guide-step {
+        padding: 15px 12px;
+    }
+    
+    .step-content h3 {
+        font-size: 1rem;
+    }
+    
+    .step-content p {
+        font-size: 0.9rem;
+    }
+    
+    .step-visual {
+        font-size: 0.85rem;
+    }
+    
+    .guide-footer .btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+        width: 100%;
+    }
+}
+
+/* Improved Grid Responsiveness */
+@media (max-width: 768px) {
+    .main-content {
+        gap: 20px;
+    }
+    
+    .card {
+        padding: 20px 15px;
+    }
+    
+    .card-title {
+        font-size: 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .card-title i {
+        font-size: 1.2rem;
+    }
+    
+    .form-input, .form-textarea, .form-select {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-group .btn {
+        width: 100%;
+    }
+    
+    .user-verification-section {
+        margin-top: 15px;
+    }
+    
+    .user-search-box {
+        flex-direction: column;
+    }
+    
+    .user-search-box input,
+    .user-search-box button {
+        width: 100%;
+    }
+    
+    .user-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 10px;
+    }
+    
+    .user-info {
+        text-align: center;
+    }
+    
+    .user-repos {
+        justify-content: center;
+    }
+    
+    .log-container {
+        height: 300px;
+        padding: 15px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 10px;
+    }
+    
+    .hero-section {
+        padding: 25px 15px;
+        margin-bottom: 30px;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .security-notice {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    .card {
+        padding: 18px 12px;
+        border-radius: 10px;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+    
+    .instructions {
+        padding: 15px;
+    }
+    
+    .instructions h4 {
+        font-size: 1rem;
+    }
+    
+    .instructions p {
+        font-size: 0.9rem;
+    }
+    
+    .security-checkbox-group {
+        padding: 12px;
+    }
+    
+    .security-checkbox label {
+        font-size: 0.9rem;
+    }
+    
+    .security-checkbox p {
+        font-size: 0.85rem;
+    }
+    
+    .form-label {
+        font-size: 0.9rem;
+    }
+    
+    .file-input {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+    
+    .token-security-note {
+        padding: 12px;
+    }
+    
+    .token-security-note h4 {
+        font-size: 0.95rem;
+    }
+    
+    .token-security-note p {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+    
+    .log-container {
+        height: 250px;
+        padding: 12px;
+        font-size: 0.8rem;
+    }
+    
+    .log-entry {
+        padding: 8px 10px;
+        margin-bottom: 8px;
+        font-size: 0.8rem;
+    }
+    
+    .footer {
+        padding: 30px 0 20px;
+        margin-top: 40px;
+    }
+    
+    .footer-content {
+        padding: 0 15px;
+    }
+    
+    .copyright {
+        font-size: 0.85rem;
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+    
+    .footer-bottom {
+        font-size: 0.8rem;
+        padding-top: 20px;
+        margin-top: 20px;
+    }
+    
+    .footer-bottom p {
+        margin-bottom: 8px;
+    }
+}
+
+/* Prevent horizontal scrolling on very small screens */
+@media (max-width: 360px) {
+    body {
+        min-width: 320px;
+        overflow-x: hidden;
+    }
+    
+    .container {
+        padding: 15px 8px;
+    }
+    
+    .header {
+        padding: 12px 15px;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.3rem;
+    }
+    
+    .logo-text p {
+        font-size: 0.75rem;
+    }
+    
+    .security-badge {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+    
+    .hero-title {
+        font-size: 1.3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+/* Fix for PAT tooltip on mobile */
+@media (max-width: 768px) {
+    .pat-tooltip {
+        display: none; /* Hide tooltip on mobile - not touch-friendly */
+    }
+    
+    .pat-abbreviation {
+        text-decoration: none;
+        cursor: default;
+    }
+    
+    .pat-abbreviation:hover .pat-tooltip {
+        display: none;
+    }
+}
+
+/* Improve text readability on small screens */
+@media (max-width: 768px) {
+    body {
+        line-height: 1.5;
+    }
+    
+    p, li {
+        line-height: 1.6;
+    }
+    
+    .form-textarea {
+        min-height: 80px;
+    }
+}
+
+/* Ensure buttons are tappable on mobile */
+@media (max-width: 768px) {
+    .btn, button, input[type="button"], input[type="submit"] {
+        min-height: 44px; /* Apple recommended minimum tap target */
+    }
+    
+    select, input[type="text"], input[type="password"], textarea {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+}
+
+/* Fix for file inputs on mobile */
+@media (max-width: 768px) {
+    .file-input-wrapper {
+        margin-top: 10px;
+    }
+    
+    .file-input {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+}    
 </style>
 </head>
 <body>
@@ -2093,6 +2491,39 @@ window.addEventListener('beforeunload', function() {
         console.log('RepoWave: Security reminder - Delete token from GitHub');
     }
 });
+
+// Add this to your existing JavaScript, in the window.addEventListener('load') section
+window.addEventListener('load', function() {
+    // ... existing code ...
+    
+    // Close modal when clicking outside on mobile
+    patGuide.addEventListener('click', function(e) {
+        if (e.target === patGuide) {
+            patGuide.classList.remove('active');
+        }
+    });
+    
+    // Prevent body scroll when modal is open
+    const closePatGuideFunction = () => {
+        patGuide.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    };
+    
+    const openPatGuideFunction = () => {
+        patGuide.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    };
+    
+    // Update existing event listeners
+    showPatGuideBtn.addEventListener('click', () => {
+        openPatGuideFunction();
+        log('Opening Maximum Security PAT Guide', 'info');
+    });
+    
+    closePatGuideBtn.addEventListener('click', closePatGuideFunction);
+    closePatGuideBtn2.addEventListener('click', closePatGuideFunction);
+});
 </script>
 </body>
+
 </html>
