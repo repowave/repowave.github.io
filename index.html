@@ -809,6 +809,13 @@ body {
     font-size: 1.1rem;
 }
 
+/* Make close button bigger on all screens */
+.guide-header .close-btn {
+    font-size: 2rem !important;
+    width: 40px !important;
+    height: 40px !important;
+}
+
 /* Footer - CENTERED and BELOW GRID */
 .footer {
     background: var(--secondary-dark);
@@ -1439,7 +1446,17 @@ input[type="password"][data-security="true"] {
         padding: 15px;
         font-size: 0.9rem;
     }
-}    
+} 
+
+/* Prevent smudging on mobile */
+@media (max-width: 768px) {
+    .pat-guide-content {
+        margin: 20px !important;
+        padding: 20px !important;
+        max-height: 85vh !important;
+        overflow-y: auto !important;
+    }
+}
 </style>
 </head>
 <body>
@@ -2522,6 +2539,30 @@ window.addEventListener('load', function() {
     
     closePatGuideBtn.addEventListener('click', closePatGuideFunction);
     closePatGuideBtn2.addEventListener('click', closePatGuideFunction);
+});
+
+// Add this to prevent body scrolling when modal is open
+showPatGuideBtn.addEventListener('click', () => {
+    patGuide.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+closePatGuideBtn.addEventListener('click', () => {
+    patGuide.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+closePatGuideBtn2.addEventListener('click', () => {
+    patGuide.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+// Add this to close modal when clicking outside
+patGuide.addEventListener('click', (e) => {
+    if (e.target === patGuide) {
+        patGuide.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
 });
 </script>
 </body>
