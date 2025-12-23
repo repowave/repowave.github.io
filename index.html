@@ -692,6 +692,8 @@ body {
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--border);
+    padding-right: 40px; /* ← ADD THIS LINE */
+    position: relative;   /* ← ADD THIS LINE */
 }
 
 .guide-header h2 {
@@ -699,6 +701,8 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex: 1;           /* ← ADD THIS */
+    padding-right: 20px; /* ← ADD THIS - space between title and button */
 }
 
 .guide-steps {
@@ -810,12 +814,27 @@ body {
 }
 
 /* Make close button bigger on all screens */
+/* Make close button bigger on all screens */
 .guide-header .close-btn {
     font-size: 2rem !important;
     width: 40px !important;
     height: 40px !important;
+    position: absolute; /* ← ADD THIS */
+    right: 0;           /* ← ADD THIS */
+    top: 0;             /* ← ADD THIS */
+    display: flex;      /* ← ADD THIS */
+    align-items: center;/* ← ADD THIS */
+    justify-content: center;/* ← ADD THIS */
+    background: transparent;/* ← ADD THIS */
+    border: none;       /* ← ADD THIS */
+    color: var(--secondary);/* ← ADD THIS */
+    cursor: pointer;    /* ← ADD THIS */
+    transition: color 0.2s;/* ← ADD THIS */
 }
 
+.guide-header .close-btn:hover {
+    color: var(--danger); /* ← ADD THIS for hover effect */
+}
 /* Footer - CENTERED and BELOW GRID */
 .footer {
     background: var(--secondary-dark);
@@ -1118,19 +1137,21 @@ input[type="password"][data-security="true"] {
     }
     
     .close-btn {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        font-size: 1.5rem;
-        background: var(--danger);
-        color: white;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    	position: absolute;
+    	top: 15px;
+    	right: 15px;
+    	font-size: 1.5rem;
+    	background: var(--danger);
+    	color: white;
+    	width: 40px;	
+    	height: 40px;
+    	border-radius: 50%;
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+    	z-index: 10;        /* ← ADD THIS */
+    	border: 2px solid white; /* ← ADD THIS - makes it more visible */
+	}
 }
 
 @media (max-width: 480px) {
@@ -2568,3 +2589,4 @@ patGuide.addEventListener('click', (e) => {
 </body>
 
 </html>
+
